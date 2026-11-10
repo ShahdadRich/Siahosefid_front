@@ -130,6 +130,34 @@ export interface RegisterCollectorResponseData {
   accessToken: string;
 }
 
+export interface AuthLoginRequestPayload {
+  identifier: string;
+  password?: string;
+  otpCode?: string;
+}
+
+export interface AuthLoginResponseData {
+  user: PlatformUser;
+  redirectPath: '/studio' | '/collector' | '/gallery' | '/admin';
+  accessToken: string;
+  refreshToken?: string;
+}
+
+export interface RequestOtpPayload {
+  phone: string;
+  purpose?: 'LOGIN' | 'REGISTER';
+}
+
+export interface RequestOtpResponseData {
+  expiresInSeconds: number;
+  resendAvailableIn: number;
+}
+
+export interface RefreshTokenResponseData {
+  accessToken: string;
+  refreshToken?: string;
+}
+
 export interface AuthSessionMeResponseData {
   authenticated: boolean;
   role: SessionRole;
@@ -370,6 +398,45 @@ export interface AdminToggleArtworkFeatureRequestPayload {
   featured: boolean;
 }
 
+export interface PublicArtistItem {
+  id: string;
+  fullName: string;
+  artisticAlias?: string;
+  artisticStyle?: ArtStyle;
+  styleLabel?: string;
+  worksCount?: number;
+}
+
+export interface PublicCertificateVerificationData {
+  verified: boolean;
+  certificateId: string;
+  accessionCode: string;
+  artworkTitle: string;
+  artistName: string;
+  artistAlias?: string;
+  ownerName: string;
+  issuedAt: string;
+}
+
+export interface CollectorTreasuryResponseData {
+  count: number;
+  totalValuation: number;
+  artworks: ArtworkItem[];
+}
+
+export interface PaginatedTransactionsResponseData {
+  total: number;
+  page: number;
+  limit: number;
+  transactions: WalletTransaction[];
+}
+
+export interface AdminTransactionsResponseData {
+  totalCount: number;
+  totalVolumeToman: number;
+  transactions: WalletTransaction[];
+}
+
 // ============================================================================
 // 6. CENTRALIZED ASYNC REST API SERVICE CLIENT
 // ============================================================================
@@ -406,6 +473,44 @@ export const siahSefidApi = {
           body: JSON.stringify(payload),
         }
       );
+      if (res.data.accessToken) {
+        setAuthToken(res.data.accessToken);
+      }
+      return res;
+    },
+
+    /**
+     * POST /api/v1/auth/login
+     */
+    login: async (payload: AuthLoginRequestPayload) => {
+      const res = await apiRequest<AuthLoginResponseData>('/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+      if (res.data.accessToken) {
+        setAuthToken(res.data.accessToken);
+      }
+      return res;
+    },
+
+    /**
+     * POST /api/v1/auth/otp/request
+     */
+    requestOtp: async (payload: RequestOtpPayload) => {
+      return apiRequest<RequestOtpResponseData>('/auth/otp/request', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+    },
+
+    /**
+     * POST /api/v1/auth/refresh
+     */
+    refreshToken: async (refreshToken: string) => {
+      const res = await apiRequest<RefreshTokenResponseData>('/auth/refresh', {
+        method: 'POST',
+        body: JSON.stringify({ refreshToken }),
+      });
       if (res.data.accessToken) {
         setAuthToken(res.data.accessToken);
       }
@@ -540,6 +645,30 @@ export const siahSefidApi = {
     },
 
     /**
+     * GET /api/v1/artworks/:id
+     */
+    getArtworkById: async (artworkId: string) => {
+      return apiRequest<ArtworkItem>(
+        `/artworks/${encodeURIComponent(artworkId)}`,
+        {
+          method: 'GET',
+        }
+      );
+    },
+
+    /**
+     * GET /api/v1/artworks/:id/certificate
+     */
+    getArtworkCertificate: async (artworkId: string) => {
+      return apiRequest<CertificateOfAuthenticity>(
+        `/artworks/${encodeURIComponent(artworkId)}/certificate`,
+        {
+          method: 'GET',
+        }
+      );
+    },
+
+    /**
      * POST /api/v1/artworks/:id/purchase
      */
     purchaseArtwork: async (
@@ -547,13 +676,15 @@ export const siahSefidApi = {
       payload: PurchaseArtworkRequestPayload = {
         paymentMethod: 'WALLET_BALANCE',
         acceptArchivalTerms: true,
-      }
+      },
+      idempotencyKey?: string
     ) => {
       return apiRequest<PurchaseArtworkResponseData>(
         `/artworks/${encodeURIComponent(artworkId)}/purchase`,
         {
           method: 'POST',
           body: JSON.stringify(payload),
+          headers: idempotencyKey ? { 'Idempotency-Key': idempotencyKey } : {},
         }
       );
     },
@@ -587,13 +718,43 @@ export const siahSefidApi = {
     },
 
     /**
+     * GET /api/v1/collector/treasury
+     */
+    getTreasuryCollection: async () => {
+      return apiRequest<CollectorTreasuryResponseData>('/collector/treasury', {
+        method: 'GET',
+      });
+    },
+
+    /**
      * POST /api/v1/collector/wallet/topup
      */
-    topUpWallet: async (payload: WalletTopUpRequestPayload) => {
+    topUpWallet: async (
+      payload: WalletTopUpRequestPayload,
+      idempotencyKey?: string
+    ) => {
       return apiRequest<WalletTopUpResponseData>('/collector/wallet/topup', {
         method: 'POST',
         body: JSON.stringify(payload),
+        headers: idempotencyKey ? { 'Idempotency-Key': idempotencyKey } : {},
       });
+    },
+
+    /**
+     * GET /api/v1/collector/transactions
+     */
+    getTransactions: async (params: { page?: number; limit?: number; type?: string } = {}) => {
+      const searchParams = new URLSearchParams();
+      if (params.page) searchParams.set('page', String(params.page));
+      if (params.limit) searchParams.set('limit', String(params.limit));
+      if (params.type) searchParams.set('type', params.type);
+      const qs = searchParams.toString();
+      return apiRequest<PaginatedTransactionsResponseData>(
+        `/collector/transactions${qs ? `?${qs}` : ''}`,
+        {
+          method: 'GET',
+        }
+      );
     },
   },
 
@@ -605,6 +766,27 @@ export const siahSefidApi = {
       return apiRequest<PublicLandingStatsResponseData>('/public/stats', {
         method: 'GET',
       });
+    },
+
+    /**
+     * GET /api/v1/public/artists
+     */
+    getArtistsDirectory: async () => {
+      return apiRequest<PublicArtistItem[]>('/public/artists', {
+        method: 'GET',
+      });
+    },
+
+    /**
+     * GET /api/v1/public/certificates/verify/:certificateId
+     */
+    verifyCertificate: async (certificateId: string) => {
+      return apiRequest<PublicCertificateVerificationData>(
+        `/public/certificates/verify/${encodeURIComponent(certificateId)}`,
+        {
+          method: 'GET',
+        }
+      );
     },
   },
 
@@ -680,6 +862,24 @@ export const siahSefidApi = {
         `/admin/artworks/${encodeURIComponent(artworkId)}`,
         {
           method: 'DELETE',
+        }
+      );
+    },
+
+    /**
+     * GET /api/v1/admin/transactions
+     */
+    getTransactionsAudit: async (params: { page?: number; limit?: number; type?: string; search?: string } = {}) => {
+      const searchParams = new URLSearchParams();
+      if (params.page) searchParams.set('page', String(params.page));
+      if (params.limit) searchParams.set('limit', String(params.limit));
+      if (params.type) searchParams.set('type', params.type);
+      if (params.search?.trim()) searchParams.set('search', params.search.trim());
+      const qs = searchParams.toString();
+      return apiRequest<AdminTransactionsResponseData>(
+        `/admin/transactions${qs ? `?${qs}` : ''}`,
+        {
+          method: 'GET',
         }
       );
     },
