@@ -1,96 +1,75 @@
-> **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).
+# Siah o Sefid (سیاه و سفید)
 
-[![skills.sh](https://skills.sh/b/anthropics/skills)](https://skills.sh/anthropics/skills)
+## 1. Project Overview & Philosophy
 
-# Skills
-Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way, whether that's creating documents with your company's brand guidelines, analyzing data using your organization's specific workflows, or automating personal tasks.
+Welcome to **Siah o Sefid** (سیاه و سفید), an avant-garde digital art archive and curatorial marketplace.
 
-For more information, check out:
-- [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
-- [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)
-- [How to create custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills)
-- [Equipping agents for the real world with Agent Skills](https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
+Inspired by the Swiss Editorial Minimalist aesthetic (akin to `dirtverse.co`), this platform serves as a refined intersection between high art curation and a modern digital marketplace. It features dual thematic experiences tailored for depth and clarity:
+- **Dark Mode (`#0a0a0a`)** – Evoking a profound gallery atmosphere.
+- **Warm Paper Light (`#f5f4f0`)** – Offering a tactile, editorial canvas.
 
-# About This Repository
+## 2. Key Visual & Technical Features
 
-This repository contains skills that demonstrate what's possible with Claude's skills system. These skills range from creative applications (art, music, design) to technical tasks (testing web apps, MCP server generation) to enterprise workflows (communications, branding, etc.).
+Our visual identity is built on a foundation of cutting-edge web technologies designed to offer a poetic, immersive experience:
 
-Each skill is self-contained in its own folder with a `SKILL.md` file containing the instructions and metadata that Claude uses. Browse through these skills to get inspiration for your own skills or to understand different patterns and approaches.
+- **Immersive Backgrounds:** Custom **WebGL2 GLSL ES 3.00 Shaders** generating fluid, divergence-free curl smoke (`Flue`) and undulating silk light/ink waves.
+- **Dynamic Typography:** Real-time optical typography contrast using `mix-blend-mode: difference`, brought to life with 3D GSAP + ScrollTrigger in our bespoke `<FoldText />` animations.
+- **Micro-Interactions:** Progressive top-right `1px` SVG perimeter border draws and elastic, mouse-reactive SVG string dividers that respond organically to user navigation.
+- **Bespoke Type System:** A custom local **IRANYekanWeb** typography system supporting 8 distinct weights (from `100` to `950`), meticulously crafted for Persian script legibility and elegance.
 
-Many skills in this repo are open source (Apache 2.0). We've also included the document creation & editing skills that power [Claude's document capabilities](https://www.anthropic.com/news/create-files) under the hood in the [`skills/docx`](./skills/docx), [`skills/pdf`](./skills/pdf), [`skills/pptx`](./skills/pptx), and [`skills/xlsx`](./skills/xlsx) subfolders. These are source-available, not open source, but we wanted to share these with developers as a reference for more complex skills that are actively used in a production AI application.
+## 3. Platform Modules & User Roles
 
-## Disclaimer
+Siah o Sefid encompasses several interconnected modules tailored for different actors within the art ecosystem:
 
-**These skills are provided for demonstration and educational purposes only.** While some of these capabilities may be available in Claude, the implementations and behaviors you receive from Claude may differ from what is shown in these skills. These skills are meant to illustrate patterns and possibilities. Always test skills thoroughly in your own environment before relying on them for critical tasks.
+- **Narrative Landing Page (`/`)**
+  A compelling 4-act scrollytelling experience that introduces the ethos of the platform. It features a role gateway allowing users to enter as an Artist (`هنرمندم`) or a Collector (`هنردوستم`), accompanied by live odometer archive metrics showcasing the platform's current scale.
 
-# Skill Sets
-- [./skills](./skills): Skill examples for Creative & Design, Development & Technical, Enterprise & Communication, and Document Skills
-- [./spec](./spec): The Agent Skills specification
-- [./template](./template): Skill template
+- **Exhibition Gallery (`/gallery`)**
+  A dual-view showcase optimized for exploration:
+  - **Side-by-Side Split Slider:** With full mobile touch-swipe support for intimate artwork viewing.
+  - **3-Column Museum Grid:** For comprehensive catalog browsing.
+  Features include advanced filtering and instant wallet-backed artwork acquisition capabilities.
 
-# Try in Claude Code, Claude.ai, and the API
+- **Artist Studio (`/studio`)**
+  A dedicated hub for creators to track personal studio metrics, register new artworks via a custom image uploader, and manage live pricing and the narrative stories behind their pieces.
 
-## Claude Code
-You can register this repository as a Claude Code Plugin marketplace by running the following command in Claude Code:
-```
-/plugin marketplace add anthropics/skills
-```
+- **Collector Profile & Treasury (`/collector`)**
+  A personalized dashboard for art patrons. It includes profile management, instant wallet top-up packages, a gallery of their purchased art collection, and a detailed transaction ledger.
 
-Then, to install a specific set of skills:
-1. Select `Browse and install plugins`
-2. Select `anthropic-agent-skills`
-3. Select `document-skills` or `example-skills`
-4. Select `Install now`
+- **Master Curatorial Admin Console (`/admin`)**
+  An endpoint-only administration panel designed for platform curators to handle user and artist moderation, curate featured artworks for the main gallery, and monitor platform liquidity and overall analytics.
 
-Alternatively, directly install either Plugin via:
-```
-/plugin install document-skills@anthropic-agent-skills
-/plugin install example-skills@anthropic-agent-skills
-```
+## 4. Tech Stack & Architecture
 
-After installing the plugin, you can use the skill by just mentioning it. For instance, if you install the `document-skills` plugin from the marketplace, you can ask Claude Code to do something like: "Use the PDF skill to extract the form fields from `path/to/some-file.pdf`"
+The platform is engineered using modern, robust web technologies:
 
-## Claude.ai
+- **Frontend Framework:** React, TypeScript, Vite
+- **Styling:** Tailwind CSS
+- **Animations:** GSAP (ScrollTrigger)
+- **Graphics & Rendering:** WebGL2 (GLSL ES 3.00)
+- **Iconography:** Lucide Icons
 
-These example skills are all already available to paid plans in Claude.ai. 
+## 5. Getting Started
 
-To use any skill from this repository or upload custom skills, follow the instructions in [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude#h_a4222fa77b).
+Follow these steps to set up the project locally for development:
 
-## Claude API
+1. **Clone the repository and install dependencies:**
+   ```bash
+   npm install
+   ```
 
-You can use Anthropic's pre-built skills, and upload custom skills, via the Claude API. See the [Skills API Quickstart](https://docs.claude.com/en/api/skills-guide#creating-a-skill) for more.
+2. **Start the local development server:**
+   ```bash
+   npm run dev
+   ```
 
-# Creating a Basic Skill
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-Skills are simple to create - just a folder with a `SKILL.md` file containing YAML frontmatter and instructions. You can use the **template-skill** in this repository as a starting point:
+## 6. Backend Integration Reference
 
-```markdown
----
-name: my-skill-name
-description: A clear description of what this skill does and when to use it
----
+For full REST API specifications and details on how the frontend communicates with our backend services, please refer to the integration guide:
 
-# My Skill Name
-
-[Add your instructions here that Claude will follow when this skill is active]
-
-## Examples
-- Example usage 1
-- Example usage 2
-
-## Guidelines
-- Guideline 1
-- Guideline 2
-```
-
-The frontmatter requires only two fields:
-- `name` - A unique identifier for your skill (lowercase, hyphens for spaces)
-- `description` - A complete description of what the skill does and when to use it
-
-The markdown content below contains the instructions, examples, and guidelines that Claude will follow. For more details, see [How to create custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills).
-
-# Partner Skills
-
-Skills are a great way to teach Claude how to get better at using specific pieces of software. As we see awesome example skills from partners, we may highlight some of them here:
-
-- **Notion** - [Notion Skills for Claude](https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0)
+[View Backend API Endpoints](./API_ENDPOINTS.md)
