@@ -36,3 +36,4 @@ spec/
 template/
 .claude-plugin/
 THIRD_PARTY_NOTICES.md
+.aistudio/
