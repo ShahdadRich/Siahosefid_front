@@ -1,0 +1,649 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('/font/iranyekanwebthin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('/font/iranyekanweblight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('/font/iranyekanwebregular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('/font/iranyekanwebmedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('/font/iranyekanwebbold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('/font/iranyekanwebextrabold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('/font/iranyekanwebblack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('/font/iranyekanwebextrablack.woff') format('woff');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *::before, *::after, html, body, button, input, textarea, select, span, p, h1, h2, h3, h4, h5, h6, label {
+  font-family: 'IRANYekan', sans-serif !important;
+  letter-spacing: 0px !important;
+  font-synthesis: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+input::placeholder,
+textarea::placeholder,
+.fold-text,
+.fold-text-piece {
+  font-family: 'IRANYekan', sans-serif !important;
+  letter-spacing: 0px !important;
+}
+
+@theme inline {
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+}
+
+:root,
+:root[data-theme="dark"] {
+  --font-persian: 'IRANYekan', sans-serif;
+  --font-sans: 'IRANYekan', sans-serif;
+  --font-mono: 'IRANYekan', ui-monospace, SFMono-Regular, monospace;
+
+  --page-ground: #0a0a0a;
+  --alternate-ground: #111111;
+  --primary-text: #ffffff;
+  --secondary-text: #d4d4d8;
+  --muted-text: #9ca3af;
+  --inverse-ground: #ffffff;
+  --inverse-text: #050505;
+  --accent: #ffc61a;
+  --primary-action-fill: #ffffff;
+  --primary-action-label: #050505;
+  --surface: #0a0a0a;
+  --hairline: rgba(255, 255, 255, 0.16);
+
+  --display-size-desktop: 83px;
+  --display-size-mobile: 62px;
+  --body-size: 16px;
+  --display-weight: 500;
+  --container-width: 1200px;
+  --page-margin: 24px;
+  --band-pt-desktop: 128px;
+  --band-pb-desktop: 85px;
+  --band-pt-mobile: 85px;
+  --band-pb-mobile: 64px;
+  --surface-corner: 8px;
+  --control-corner: 8px;
+
+  --bg-primary: #0a0a0a;
+  --bg-dark: #0a0a0a;
+  --bg-flue: #1d0f0c;
+  --text-primary: #ffffff;
+  --text-muted: #9ca3af;
+  --border-hairline: rgba(255, 255, 255, 0.14);
+  --border-hairline-dark: rgba(255, 255, 255, 0.14);
+
+  --card: #12151f;
+  --border: rgba(255, 255, 255, 0.18);
+  --sidebar-border: rgba(255, 255, 255, 0.18);
+  --primary: #eceff5;
+  --muted: rgba(255, 255, 255, 0.08);
+  --muted-foreground: #94a3b8;
+}
+
+:root[data-theme="light"] {
+  --page-ground: #f5f4f0;
+  --alternate-ground: #ecebe8;
+  --primary-text: #000000;
+  --secondary-text: #373737;
+  --muted-text: #505050;
+  --inverse-ground: #141314;
+  --inverse-text: #fcfcfd;
+  --accent: #ffc61a;
+  --primary-action-fill: #131313;
+  --primary-action-label: #fcfcfd;
+  --surface: #ecebe8;
+  --hairline: #d6d5d2;
+  --display-size-desktop: 83px; /* at 1440px */
+  --display-size-mobile: 62px;  /* at 390px */
+  --body-size: 16px;
+  --display-weight: 500;
+  --container-width: 1200px;
+  --page-margin: 24px;
+  --band-pt-desktop: 128px;
+  --band-pb-desktop: 85px;
+  --band-pt-mobile: 85px;
+  --band-pb-mobile: 64px;
+  --surface-corner: 8px;
+  --control-corner: 8px;
+
+  --bg-primary: #f5f4f0;
+  --bg-dark: #141314;
+  --text-primary: #000000;
+  --text-muted: #505050;
+  --border-hairline: #d6d5d2;
+
+  --card: #ecebe8;
+  --border: #d6d5d2;
+  --sidebar-border: #d6d5d2;
+  --primary: #000000;
+  --muted: #ecebe8;
+  --muted-foreground: #505050;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-persian);
+    background-color: var(--page-ground);
+    color: var(--primary-text);
+    scroll-behavior: smooth;
+    transition: background-color 350ms cubic-bezier(0.22, 1, 0.36, 1), color 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--page-ground);
+    color: var(--primary-text);
+    font-family: var(--font-persian);
+    font-size: var(--body-size);
+    transition: background-color 350ms cubic-bezier(0.22, 1, 0.36, 1), color 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+.font-persian {
+  font-family: 'IRANYekan', sans-serif;
+  letter-spacing: 0px !important;
+}
+
+.font-display-en {
+  font-family: 'IRANYekan', sans-serif;
+  letter-spacing: 0px !important;
+  line-height: 0.95;
+}
+
+.font-mono-archival {
+  font-family: 'IRANYekan', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0px !important;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+}
+
+.font-mono-counter {
+  font-family: 'IRANYekan', sans-serif;
+  letter-spacing: 0px !important;
+  line-height: 0.92;
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+}
+
+.font-mono-label {
+  font-family: 'IRANYekan', sans-serif;
+  letter-spacing: 0px !important;
+}
+
+.headline-persian-hero {
+  font-family: 'IRANYekan', sans-serif;
+  font-size: clamp(2.75rem, 6.5vw, 6.25rem);
+  line-height: 1.08;
+  letter-spacing: 0px !important;
+}
+
+.ease-editorial {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ease-showcase {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-flue-canvas-mask {
+  height: 130vh;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 62%,
+    rgba(0, 0, 0, 0.6) 78%,
+    rgba(0, 0, 0, 0.15) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 62%,
+    rgba(0, 0, 0, 0.6) 78%,
+    rgba(0, 0, 0, 0.15) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.hero-bottom-atmospheric-fade {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0) 0%,
+    rgba(10, 10, 10, 0.15) 25%,
+    rgba(10, 10, 10, 0.55) 55%,
+    rgba(10, 10, 10, 0.88) 80%,
+    var(--page-ground) 100%
+  );
+}
+
+.section-top-atmospheric-fade {
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0) 0%,
+    rgba(10, 10, 10, 0.15) 25%,
+    rgba(10, 10, 10, 0.55) 55%,
+    rgba(10, 10, 10, 0.88) 80%,
+    var(--page-ground) 100%
+  );
+}
+
+.fold-text {
+  display: inline-block;
+  color: var(--fold-text-color, currentColor);
+  font-size: var(--fold-text-font-size, inherit);
+  font-weight: var(--fold-text-font-weight, inherit);
+  line-height: 1.1;
+  letter-spacing: 0px !important;
+  white-space: pre-wrap;
+  user-select: text;
+}
+
+.fold-text-sr-only {
+  position: absolute;
+  user-select: none;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.fold-text-visual {
+  display: inline;
+}
+
+.fold-text-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.fold-text-segment {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.fold-text-segment[data-fold-split='line'] {
+  display: block;
+}
+
+.fold-text-piece {
+  --fold-shade: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.58) 0%,
+    rgba(0, 0, 0, 0.22) 42%,
+    rgba(255, 255, 255, 0.26) 100%
+  );
+  position: relative;
+  display: inline-block;
+  transform-origin: 50% 0%;
+}
+
+.fold-text-piece[data-fold-hinge='bottom'] {
+  --fold-shade: linear-gradient(0deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.22) 42%, rgba(255, 255, 255, 0.26) 100%);
+  transform-origin: 50% 100%;
+}
+
+.fold-text-piece[data-fold-hinge='left'] {
+  --fold-shade: linear-gradient(90deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.22) 42%, rgba(255, 255, 255, 0.26) 100%);
+  transform-origin: 0% 50%;
+}
+
+.fold-text-piece[data-fold-hinge='right'] {
+  --fold-shade: linear-gradient(
+    270deg,
+    rgba(0, 0, 0, 0.58) 0%,
+    rgba(0, 0, 0, 0.22) 42%,
+    rgba(255, 255, 255, 0.26) 100%
+  );
+  transform-origin: 100% 50%;
+}
+
+.fold-text-slat {
+  position: relative;
+  display: inline-block;
+}
+
+.fold-text-slat[data-fold-slat='b'] {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+
+.fold-text-piece::after,
+.fold-text-slat::after,
+.fold-text-piece[data-fold-active='true']::after,
+.fold-text-slat[data-fold-active='true']::after {
+  content: none !important;
+  opacity: 0 !important;
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fold-text-piece,
+  .fold-text-slat {
+    transform: none !important;
+  }
+
+  .fold-text-piece::after,
+  .fold-text-slat::after {
+    opacity: 0 !important;
+  }
+}
+
+.role-gateway-content {
+  color: #FFFFFF;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85);
+  transition: color 500ms cubic-bezier(0.16, 1, 0.3, 1), text-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .role-gateway-content {
+  color: #050505;
+  text-shadow: none;
+}
+
+:root[data-theme="light"] .role-gateway-content {
+  color: #000000;
+  text-shadow: none;
+}
+
+:root[data-theme="light"] .group:hover .role-gateway-content {
+  color: #fcfcfd;
+  text-shadow: none;
+}
+
+/* ==========================================================================
+ * LIGHT THEME ARCHITECTURAL SURFACE & TYPOGRAPHY ADAPTATION
+ * Applies the exact Light Theme design tokens across non-blended views
+ * (Gallery, Artist Studio, Collector Wallet, Admin Console & Modals)
+ * while preserving mix-blend-difference optical regions untouched.
+ * ========================================================================== */
+:root[data-theme="light"] .siah-light-surface {
+  background-color: var(--page-ground) !important;
+  color: var(--primary-text) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="bg-[#050505]"],
+:root[data-theme="light"] .siah-light-surface [class*="bg-[#07080c]"],
+:root[data-theme="light"] .siah-light-surface [class*="bg-[#0A0A0A]"] {
+  background-color: rgba(245, 244, 240, 0.88) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="bg-black/"] {
+  background-color: rgba(236, 235, 232, 0.35) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="text-white"]:not(.siah-keep-inverse):not([aria-selected="true"]):not([aria-checked="true"]):not([aria-pressed="true"]):not([data-active="true"]):not([class*="!text-[#fcfcfd]"]):not([class*="!bg-[#131313]"]):not(button):not(button *) {
+  color: var(--primary-text) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="text-white/9"]:not([class*="!text-[#fcfcfd]"]):not([class*="!bg-[#131313]"]):not(button):not(button *),
+:root[data-theme="light"] .siah-light-surface [class*="text-white/8"]:not([class*="!text-[#fcfcfd]"]):not([class*="!bg-[#131313]"]):not(button):not(button *),
+:root[data-theme="light"] .siah-light-surface [class*="text-white/7"]:not([class*="!text-[#fcfcfd]"]):not([class*="!bg-[#131313]"]):not(button):not(button *) {
+  color: var(--secondary-text) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="text-white/6"]:not([class*="!text-[#fcfcfd]"]):not([class*="!bg-[#131313]"]):not(button):not(button *),
+:root[data-theme="light"] .siah-light-surface [class*="text-white/5"]:not([class*="!text-[#fcfcfd]"]):not([class*="!bg-[#131313]"]):not(button):not(button *),
+:root[data-theme="light"] .siah-light-surface [class*="text-white/4"]:not([class*="!text-[#fcfcfd]"]):not([class*="!bg-[#131313]"]):not(button):not(button *),
+:root[data-theme="light"] .siah-light-surface [class*="text-white/3"]:not([class*="!text-[#fcfcfd]"]):not([class*="!bg-[#131313]"]):not(button):not(button *) {
+  color: var(--muted-text) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface .fold-text {
+  --fold-text-color: currentColor !important;
+  color: currentColor !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="border-white/"] {
+  border-color: var(--hairline) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="bg-white/"]:not([class*="bg-white"]):not([data-testid^="carousel-dot-"]):not([data-carousel-dash="true"]) {
+  background-color: var(--surface) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface .bg-white:not([data-testid="theme-toggle"]) {
+  background-color: var(--primary-action-fill) !important;
+  color: var(--primary-action-label) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface .bg-white:not([data-testid="theme-toggle"]) * {
+  color: var(--primary-action-label) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="hover:bg-white"]:hover {
+  background-color: var(--primary-action-fill) !important;
+  color: var(--primary-action-label) !important;
+}
+
+:root[data-theme="light"] .siah-light-surface [class*="hover:bg-white"]:hover * {
+  color: var(--primary-action-label) !important;
+}
+
+/* ==========================================================================
+ * LIGHT MODE ACTIVE & INACTIVE TABS, TILES, AND TOGGLES CONTRAST SPECIFICATION
+ * Strictly #131313 background with #fcfcfd text when ACTIVE/SELECTED.
+ * Strictly transparent background with #000000 text when INACTIVE.
+ * ========================================================================== */
+:root[data-theme="light"] [role="tab"][aria-selected="true"],
+:root[data-theme="light"] [role="radio"][aria-checked="true"],
+:root[data-theme="light"] button[aria-pressed="true"],
+:root[data-theme="light"] [data-active="true"],
+:root[data-theme="light"] .siah-active-tab,
+:root[data-theme="light"] .siah-light-surface [role="tab"][aria-selected="true"],
+:root[data-theme="light"] .siah-light-surface [role="radio"][aria-checked="true"],
+:root[data-theme="light"] .siah-light-surface button[aria-pressed="true"],
+:root[data-theme="light"] .siah-light-surface [data-active="true"] {
+  background-color: var(--primary-action-fill) !important;
+  color: var(--primary-action-label) !important;
+}
+
+:root[data-theme="light"] [role="tab"][aria-selected="true"] *,
+:root[data-theme="light"] [role="radio"][aria-checked="true"] *,
+:root[data-theme="light"] button[aria-pressed="true"] *,
+:root[data-theme="light"] [data-active="true"] *,
+:root[data-theme="light"] .siah-active-tab *,
+:root[data-theme="light"] .siah-light-surface [role="tab"][aria-selected="true"] *,
+:root[data-theme="light"] .siah-light-surface [role="radio"][aria-checked="true"] *,
+:root[data-theme="light"] .siah-light-surface button[aria-pressed="true"] *,
+:root[data-theme="light"] .siah-light-surface [data-active="true"] * {
+  color: var(--primary-action-label) !important;
+}
+
+/* Explicit Light Mode rules for all Primary Dark-Filled Buttons */
+:root[data-theme="light"] [data-testid="carousel-inspect-buy-btn"],
+:root[data-theme="light"] [data-testid="confirm-wallet-purchase-btn"],
+:root[data-theme="light"] [data-testid="submit-artist-registration"],
+:root[data-theme="light"] [data-testid="submit-collector-registration"],
+:root[data-theme="light"] [data-testid="collector-topup-submit-btn"],
+:root[data-theme="light"] [data-testid="collector-save-profile-btn"],
+:root[data-theme="light"] [data-testid="studio-submit-artwork-btn"],
+:root[data-theme="light"] [class*="!bg-[#131313]"],
+:root[data-theme="light"] .siah-light-surface [data-testid="carousel-inspect-buy-btn"],
+:root[data-theme="light"] .siah-light-surface [data-testid="confirm-wallet-purchase-btn"],
+:root[data-theme="light"] .siah-light-surface [data-testid="submit-artist-registration"],
+:root[data-theme="light"] .siah-light-surface [data-testid="submit-collector-registration"],
+:root[data-theme="light"] .siah-light-surface [data-testid="collector-topup-submit-btn"],
+:root[data-theme="light"] .siah-light-surface [data-testid="collector-save-profile-btn"],
+:root[data-theme="light"] .siah-light-surface [data-testid="studio-submit-artwork-btn"],
+:root[data-theme="light"] .siah-light-surface [class*="!bg-[#131313]"] {
+  background-color: #131313 !important;
+  color: #fcfcfd !important;
+}
+
+:root[data-theme="light"] [data-testid="carousel-inspect-buy-btn"] *,
+:root[data-theme="light"] [data-testid="confirm-wallet-purchase-btn"] *,
+:root[data-theme="light"] [data-testid="submit-artist-registration"] *,
+:root[data-theme="light"] [data-testid="submit-collector-registration"] *,
+:root[data-theme="light"] [data-testid="collector-topup-submit-btn"] *,
+:root[data-theme="light"] [data-testid="collector-save-profile-btn"] *,
+:root[data-theme="light"] [data-testid="studio-submit-artwork-btn"] *,
+:root[data-theme="light"] [class*="!bg-[#131313]"] *,
+:root[data-theme="light"] .siah-light-surface [data-testid="carousel-inspect-buy-btn"] *,
+:root[data-theme="light"] .siah-light-surface [data-testid="confirm-wallet-purchase-btn"] *,
+:root[data-theme="light"] .siah-light-surface [data-testid="submit-artist-registration"] *,
+:root[data-theme="light"] .siah-light-surface [data-testid="submit-collector-registration"] *,
+:root[data-theme="light"] .siah-light-surface [data-testid="collector-topup-submit-btn"] *,
+:root[data-theme="light"] .siah-light-surface [data-testid="collector-save-profile-btn"] *,
+:root[data-theme="light"] .siah-light-surface [data-testid="studio-submit-artwork-btn"] *,
+:root[data-theme="light"] .siah-light-surface [class*="!bg-[#131313]"] * {
+  color: #fcfcfd !important;
+}
+
+/* Role Switcher in Registration Modal (Curtain underneath provides #131313) */
+:root[data-theme="light"] [role="tablist"] [role="tab"][aria-selected="true"],
+:root[data-theme="light"] .siah-light-surface [role="tablist"] [role="tab"][aria-selected="true"] {
+  background-color: transparent !important;
+  color: #fcfcfd !important;
+}
+:root[data-theme="light"] [role="tablist"] [role="tab"][aria-selected="true"] *,
+:root[data-theme="light"] .siah-light-surface [role="tablist"] [role="tab"][aria-selected="true"] * {
+  color: #fcfcfd !important;
+}
+
+:root[data-theme="light"] [role="tab"][aria-selected="false"]:not(.slider-dash-inactive),
+:root[data-theme="light"] [role="radio"][aria-checked="false"]:not(.slider-dash-inactive),
+:root[data-theme="light"] button[aria-pressed="false"]:not(.slider-dash-inactive),
+:root[data-theme="light"] .siah-light-surface [role="tab"][aria-selected="false"]:not(.slider-dash-inactive),
+:root[data-theme="light"] .siah-light-surface [role="radio"][aria-checked="false"]:not(.slider-dash-inactive),
+:root[data-theme="light"] .siah-light-surface button[aria-pressed="false"]:not(.slider-dash-inactive) {
+  background-color: transparent !important;
+  color: #000000 !important;
+}
+
+:root[data-theme="light"] [role="tab"][aria-selected="false"] *,
+:root[data-theme="light"] [role="radio"][aria-checked="false"] *,
+:root[data-theme="light"] button[aria-pressed="false"] *,
+:root[data-theme="light"] .siah-light-surface [role="tab"][aria-selected="false"] *,
+:root[data-theme="light"] .siah-light-surface [role="radio"][aria-checked="false"] *,
+:root[data-theme="light"] .siah-light-surface button[aria-pressed="false"] * {
+  color: #000000 !important;
+}
+
+/* Inactive button hover in Light Mode */
+:root[data-theme="light"] .siah-light-surface [role="tab"][aria-selected="false"]:hover,
+:root[data-theme="light"] .siah-light-surface [role="radio"][aria-checked="false"]:hover,
+:root[data-theme="light"] .siah-light-surface button[aria-pressed="false"]:hover {
+  color: #000000 !important;
+}
+
+:root[data-theme="light"] .siah-light-surface svg path[stroke*="255"],
+:root[data-theme="light"] .siah-light-surface svg path[stroke="#FFFFFF"],
+:root[data-theme="light"] .siah-light-surface svg rect[stroke="#FFFFFF"],
+:root[data-theme="light"] .siah-light-surface svg rect[stroke*="255"] {
+  stroke: #131313 !important;
+}
+
+:root[data-theme="light"] .siah-light-surface input::placeholder,
+:root[data-theme="light"] .siah-light-surface textarea::placeholder {
+  color: var(--muted-text) !important;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+ * GALLERY SLIDER PAGINATION INDICATOR DASHES
+ * Uses border-top and transparent background with mix-blend-mode normal
+ * so zero global background rules or theme inversions can ever turn active dash white in Light Mode.
+ * ========================================================================== */
+.slider-dash-active {
+  width: 32px !important;
+  height: 0px !important;
+  border-top: 3px solid #ffffff !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  mix-blend-mode: normal !important;
+  transition: all 0.3s ease;
+}
+
+.slider-dash-inactive {
+  width: 14px !important;
+  height: 0px !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  mix-blend-mode: normal !important;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .slider-dash-active,
+.light .slider-dash-active,
+:root[data-theme="light"] .slider-dash-active,
+:root[data-theme="light"] .siah-light-surface .slider-dash-active,
+:root[data-theme="light"] span.slider-dash-active {
+  border-top-color: #000000 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+[data-theme="light"] .slider-dash-inactive,
+.light .slider-dash-inactive,
+:root[data-theme="light"] .slider-dash-inactive,
+:root[data-theme="light"] .siah-light-surface .slider-dash-inactive,
+:root[data-theme="light"] span.slider-dash-inactive {
+  border-top-color: rgba(0, 0, 0, 0.32) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
