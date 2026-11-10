@@ -68,13 +68,13 @@ test('Centralized REST API service layer (src/services/api.ts) maps payloads and
     dimensions: '120 × 160 cm',
     medium: 'زغال فشرده و ورق نقره روی بوم کتان',
     story: 'واکاوی مرز میان نور خاکستری و بافت متخلخل زغال روی کتان خام.',
-    image: '/src/assets/images/art_crimson_void_canvas_1793998762808.jpg',
+    image: '/images/art_crimson_void_canvas_1793998762808.jpg',
   });
   assert.equal(artPayload.technique, 'زغال فشرده و ورق نقره روی بوم کتان');
   assert.equal(artPayload.customStyle, 'چیدمان مفهومی');
   assert.equal(
     artPayload.imageUrl,
-    '/src/assets/images/art_crimson_void_canvas_1793998762808.jpg'
+    '/images/art_crimson_void_canvas_1793998762808.jpg'
   );
 
   assert.equal(toGalleryPriceRangeQuery('UNDER_45M'), 'under-45m');
@@ -241,7 +241,7 @@ test('validateArtworkInput checks title, minimum price, and story length', () =>
     dimensions: '120 × 150 cm',
     medium: 'زغال و ورق نقره روی بوم',
     story: 'اثری مینیمال با تمرکز بر بافت زغال طبیعی و بازتاب نور در گالری.',
-    image: '/src/assets/images/art_crimson_void_canvas_1793998762808.jpg',
+    image: '/images/art_crimson_void_canvas_1793998762808.jpg',
   });
   assert.equal(valid.valid, true);
 });

@@ -37,27 +37,27 @@ export const STUDIO_SAMPLE_IMAGES = [
   {
     labelFa: 'خطاطی و زغال',
     labelEn: 'Charcoal & Sumi Ink',
-    url: '/src/assets/images/art_charcoal_calligraphy_1793998760531.jpg',
+    url: '/images/art_charcoal_calligraphy_1793998760531.jpg',
   },
   {
     labelFa: 'شکاف اخرایی',
     labelEn: 'Ochre Fissure',
-    url: '/src/assets/images/art_crimson_void_canvas_1793998762808.jpg',
+    url: '/images/art_crimson_void_canvas_1793998762808.jpg',
   },
   {
     labelFa: 'برنز و تراورتن',
     labelEn: 'Bronze & Travertine',
-    url: '/src/assets/images/art_brutalist_bronze_sculpture_1793998761500.jpg',
+    url: '/images/art_brutalist_bronze_sculpture_1793998761500.jpg',
   },
   {
     labelFa: 'سیلور ژلاتین کویر',
     labelEn: 'Desert Silver Gelatin',
-    url: '/src/assets/images/art_silver_gelatin_desert_1793998763137.jpg',
+    url: '/images/art_silver_gelatin_desert_1793998763137.jpg',
   },
   {
     labelFa: 'پاویون بتن و سایه',
     labelEn: 'Concrete Pavilion',
-    url: '/src/assets/images/hero_architectural_monolith_1793991682371.jpg',
+    url: '/images/hero_architectural_monolith_1793991682371.jpg',
   },
 ];
 

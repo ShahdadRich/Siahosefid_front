@@ -198,7 +198,7 @@ export const INITIAL_ARTWORKS: ArtworkItem[] = [
     year: '۱۴۰۵',
     story:
       'این اثر حاصل هم‌نشینی فرم‌های خوشنویسی سیاه‌مشق ایرانی با زیبایی‌شناسی مینیمالیسم سوئیسی است. ضربه‌قلم‌های سنگین زغال و مرکب بدون هیچ اصلاحی بر بوم خام ثبت شده‌اند تا تنش میان حرکت و سکون را جاودانه کنند.',
-    image: '/src/assets/images/art_charcoal_calligraphy_1793998760531.jpg',
+    image: '/images/art_charcoal_calligraphy_1793998760531.jpg',
     aspectRatio: '3/4',
     featured: true,
     sold: false,
@@ -219,7 +219,7 @@ export const INITIAL_ARTWORKS: ArtworkItem[] = [
     year: '۱۴۰۵',
     story:
       'الهام‌گرفته از کوره و دود در تاریکی؛ لایه‌های متراکم سیاه مات در کنار شکافی عمودی از اخرای سرخ گرم قرار گرفته‌اند تا حس گرمای نهفته در دل سنگ سرد را به بیننده منتقل کنند.',
-    image: '/src/assets/images/art_crimson_void_canvas_1793998762808.jpg',
+    image: '/images/art_crimson_void_canvas_1793998762808.jpg',
     aspectRatio: '3/4',
     featured: true,
     sold: false,
@@ -240,7 +240,7 @@ export const INITIAL_ARTWORKS: ArtworkItem[] = [
     year: '۱۴۰۵',
     story:
       'در این مجسمه معماری‌گونه، ورق‌های برنز اکسیدشده در دل بلوک‌های تراورتن طبیعی قفل شده‌اند. تضاد میان تخلخل سنگ روشن و صلابت فلز تیره، گفت‌وگویی بی‌پایان میان طبیعت و هندسه ایجاد می‌کند.',
-    image: '/src/assets/images/art_brutalist_bronze_sculpture_1793998761500.jpg',
+    image: '/images/art_brutalist_bronze_sculpture_1793998761500.jpg',
     aspectRatio: '4/3',
     featured: true,
     sold: false,
@@ -261,7 +261,7 @@ export const INITIAL_ARTWORKS: ArtworkItem[] = [
     year: '۱۴۰۴',
     story:
       'ثبت آنالوگ با دوربین قطع متوسط از سایه‌های تیز معماری کویری در آخرین دقایق غروب. کنتراست خالص سیاه و سفید، حجم‌های خشتی را به یک ترکیب‌بندی انتزاعی تبدیل کرده است.',
-    image: '/src/assets/images/art_silver_gelatin_desert_1793998763137.jpg',
+    image: '/images/art_silver_gelatin_desert_1793998763137.jpg',
     aspectRatio: '16/9',
     featured: true,
     sold: false,
@@ -282,7 +282,7 @@ export const INITIAL_ARTWORKS: ArtworkItem[] = [
     year: '۱۴۰۵',
     story:
       'مطالعه‌ای پیرامون برش‌های هندسی نور خورشید بر دیوارهای بتن اکسپوز و کفپوش سنگ تراورتن؛ جایی که فضا و زمان در سکوت مطلق منجمد شده‌اند.',
-    image: '/src/assets/images/hero_architectural_monolith_1793991682371.jpg',
+    image: '/images/hero_architectural_monolith_1793991682371.jpg',
     aspectRatio: '16/9',
     featured: false,
     sold: false,
@@ -303,7 +303,7 @@ export const INITIAL_ARTWORKS: ArtworkItem[] = [
     year: '۱۴۰۵',
     story:
       'چیدمانی تعاملی که فرم صنعتی مینیمال را با امواج صوتی محیطی ترکیب می‌کند؛ قطعه‌ای کلکسیونی برای فضاهای معماری مدرن.',
-    image: '/src/assets/images/work_vanguard_acoustic_1793991682972.jpg',
+    image: '/images/work_vanguard_acoustic_1793991682972.jpg',
     aspectRatio: '4/3',
     featured: false,
     sold: false,

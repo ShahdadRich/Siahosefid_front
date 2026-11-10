@@ -78,7 +78,7 @@ export const DEFAULT_BRAND_CONFIG: BrandConfig = {
 };
 
 export const HERO_VISUAL = {
-  image: '/src/assets/images/hero_architectural_monolith_1793991682371.jpg',
+  image: '/images/hero_architectural_monolith_1793991682371.jpg',
   captionIndex: '00 — MONOLITH STUDY IV',
   reelDuration: '01:42',
   architecturalLocation: '47.3769° N, 8.5417° E — ZÜRICH PAVILION',
@@ -100,7 +100,7 @@ export const SELECTED_WORKS: ProjectWork[] = [
     category: 'BRAND',
     year: '2026',
     location: 'BASEL / BERLIN',
-    image: '/src/assets/images/work_vanguard_acoustic_1793991682972.jpg',
+    image: '/images/work_vanguard_acoustic_1793991682972.jpg',
     aspectRatio: '4/3',
     columnSpan: 'left-wide',
     metrics: [
@@ -131,7 +131,7 @@ export const SELECTED_WORKS: ProjectWork[] = [
     category: 'DIGITAL',
     year: '2026',
     location: 'MUNICH / ZÜRICH',
-    image: '/src/assets/images/work_aether_mobility_1793991684374.jpg',
+    image: '/images/work_aether_mobility_1793991684374.jpg',
     aspectRatio: '3/4',
     columnSpan: 'right-narrow',
     metrics: [
@@ -162,7 +162,7 @@ export const SELECTED_WORKS: ProjectWork[] = [
     category: 'CONTENT',
     year: '2025',
     location: 'PARIS / ANTWERP',
-    image: '/src/assets/images/work_solstice_botanical_1793991685695.jpg',
+    image: '/images/work_solstice_botanical_1793991685695.jpg',
     aspectRatio: '4/3',
     columnSpan: 'left-narrow',
     metrics: [
@@ -193,7 +193,7 @@ export const SELECTED_WORKS: ProjectWork[] = [
     category: 'MOTION',
     year: '2026',
     location: 'GENEVA / TOKYO',
-    image: '/src/assets/images/work_chronos_horology_1793991686452.jpg',
+    image: '/images/work_chronos_horology_1793991686452.jpg',
     aspectRatio: '16/9',
     columnSpan: 'right-wide',
     metrics: [
@@ -235,7 +235,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       'Custom Typeface Curation & Optical Sizing',
       'Comprehensive Digital Brand Book & Tokens',
     ],
-    previewImage: '/src/assets/images/work_vanguard_acoustic_1793991682972.jpg',
+    previewImage: '/images/work_vanguard_acoustic_1793991682972.jpg',
   },
   {
     id: 'service-digital',
@@ -254,7 +254,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       'Interactive 3D / WebGL Product Configurators',
       'Bespoke Headless Commerce & Collector Portals',
     ],
-    previewImage: '/src/assets/images/work_aether_mobility_1793991684374.jpg',
+    previewImage: '/images/work_aether_mobility_1793991684374.jpg',
   },
   {
     id: 'service-content',
@@ -273,7 +273,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       'Hardcover Print Monographs & Lookbooks',
       'Technical & Editorial Copywriting Systems',
     ],
-    previewImage: '/src/assets/images/work_solstice_botanical_1793991685695.jpg',
+    previewImage: '/images/work_solstice_botanical_1793991685695.jpg',
   },
   {
     id: 'service-motion',
@@ -292,7 +292,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       'Real-Time Interactive Shaders & Motion Guidelines',
       'Bespoke Sonic Branding & Tactile UI Audio',
     ],
-    previewImage: '/src/assets/images/work_chronos_horology_1793991686452.jpg',
+    previewImage: '/images/work_chronos_horology_1793991686452.jpg',
   },
 ];
 
